@@ -201,18 +201,15 @@ class HuggingFaceClassifier(LightningModule):
             self.hparams.tokenizer_type, self.hparams.tokenizer_weight, do_lower_case=self.hparams.do_lower_case)
 
     def forward(self, input_ids, token_type_ids=None, attention_mask=None):
-
         # if input_ids is not None and token_type_ids is not None and attention_mask is not None:
         #     logger.debug(f"Device: {next(self.encoder.model.parameters()).device}")
         #     logger.debug(f"Device: {input_ids.device} {token_type_ids.device} {attention_mask.device}")
-
         # TODO [Optional]: Change it to your own forward
         outputs = self.encoder.forward(
             **{'input_ids': input_ids, 'token_type_ids': token_type_ids, 'attention_mask': attention_mask})
         output = torch.mean(outputs[0], dim=1).squeeze()
         output = self.dropout(output)
         logits = self.linear(output)
-
         return logits.squeeze()
 
     def intermediate(self, input_ids, token_type_ids=None, attention_mask=None):
@@ -300,7 +297,7 @@ class HuggingFaceClassifier(LightningModule):
         loss = self.loss(truth, logits)
 
         assert math.isclose(loss.item(), loss_sum.item(),
-                            abs_tol=1), f"Loss not equal: {loss.item()} VS. {loss_sum.item()}"
+                            abs_tol=0.01), f"Loss not equal: {loss.item()} VS. {loss_sum.item()}"
 
         loss /= truth.shape[0]
         loss_sum /= truth.shape[0]

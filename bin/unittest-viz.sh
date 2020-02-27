@@ -1,5 +1,5 @@
 #!/bin/sh
-PYTHON=/Users/chenghaomou/Anaconda/envs/Elisa/bin/python
+PYTHON=/auto/nlg-05/wangli/miniconda3/envs/ai2_chenghao/bin/python
 EVAL=gradient_visual.py
 
 $PYTHON -W ignore $EVAL --model_type distilbert \

@@ -1,5 +1,5 @@
 #!/bin/sh
-PYTHON=/Users/chenghaomou/Anaconda/envs/Elisa/bin/python
+PYTHON=/auto/nlg-05/wangli/miniconda3/envs/ai2_chenghao/bin/python
 TRAIN=train.py
 
 $PYTHON -W ignore $TRAIN --model_type distilbert --model_weight distilbert-base-uncased \
