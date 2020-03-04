@@ -1,5 +1,5 @@
 #!/bin/sh
-PYTHON=/Users/DavidLi/Developer/miniconda3/envs/ai2/bin/python
+PYTHON=/auto/nlg-05/chengham/anaconda3/envs/py37/bin/python
 EVAL=gradient_visual.py
 
 $PYTHON -W ignore $EVAL --model_type $1 \

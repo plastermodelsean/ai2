@@ -1,6 +1,6 @@
 #!/bin/sh
 PYTHON=/auto/nlg-05/chengham/anaconda3/envs/py37/bin/python
-EVAL=/auto/rcf-40/wangli/project/ai2_chenghao/test.py
+EVAL=/auto/rcf-40/wangli/project/ai2/test.py
 
 OUTPUT=/auto/rcf-40/wangli/project/ai2_chenghao/output
 

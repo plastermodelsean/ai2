@@ -9,4 +9,3 @@ $PYTHON -W ignore $TRAIN --model_type $1 --model_weight $2 \
   --task_cache_dir ./cache \
   --output_dir output/$1-$2-$3-pred \
   --log_save_interval 25 --row_log_interval 25
-
