@@ -22,18 +22,20 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from pytorch_lightning.utilities.arg_parse import add_default_args
 from test_tube import HyperOptArgumentParser, Experiment
-
 from huggingface import HuggingFaceClassifier
 from textbook.utils import set_seed, get_default_hyperparameter
 
 
 def main(hparams):
+    # Define directory for all output
     curr_dir = Path("output")
 
+    # Create the log directory
     log_dir = curr_dir / f"{hparams.model_type}-{hparams.model_weight}-log"
-
     Path(log_dir).mkdir(parents=True, exist_ok=True)
+    logger.info(f"Logging output to {log_dir}")
 
+    # Define the test tube experiment
     exp = Experiment(
         name=hparams.task_name,
         version=0,
@@ -41,16 +43,24 @@ def main(hparams):
         autosave=True,
     )
 
+    # Define the path where the model will be saved
     model_save_path = curr_dir / f"{hparams.model_type}-{hparams.model_weight}-checkpoints" / hparams.task_name / str(exp.version) / ""
     logger.info(f"Saving model to {model_save_path}")
 
+    # Loading config files and create a partial function to get the default parameters
     running_config = yaml.safe_load(open(hparams.running_config_file, "r"))
     task_config = yaml.safe_load(open(hparams.task_config_file, 'r'))
 
-    default_parameter = partial(get_default_hyperparameter, config=running_config,
-                                task_name=hparams.task_name, model_type=hparams.model_type,
-                                model_weight=hparams.model_weight)
+    # Set the parameter based on information passed in from command line
+    hparams.model_save_path = model_save_path
+    hparams.output_dimension = task_config[hparams.task_name].get('output_dimension', 1)
+    hparams.tokenizer_type = hparams.model_type if hparams.tokenizer_type is None else hparams.tokenizer_type
+    hparams.tokenizer_weight = hparams.model_weight if hparams.tokenizer_weight is None else hparams.tokenizer_weight
 
+    # Set remaining parameters for model to the default parameters specified in running_config
+    default_parameter = partial(get_default_hyperparameter,
+                                config=running_config, task_name=hparams.task_name,
+                                model_type=hparams.model_type, model_weight=hparams.model_weight)
     hparams.max_nb_epochs = default_parameter(field='max_nb_epochs')
     hparams.learning_rate = float(default_parameter(field='lr'))
     hparams.initializer_range = float(default_parameter(field='initializer_range'))
@@ -63,11 +73,8 @@ def main(hparams):
     hparams.adam_epsilon = float(default_parameter(field='adam_epsilon'))
     hparams.accumulate_grad_batches = default_parameter(field='accumulate_grad_batches')
     hparams.do_lower_case = default_parameter(field='do_lower_case')
-    hparams.model_save_path = model_save_path
-    hparams.output_dimension = task_config[hparams.task_name].get('output_dimension', 1)
-    hparams.tokenizer_type = hparams.model_type if hparams.tokenizer_type is None else hparams.tokenizer_type
-    hparams.tokenizer_weight = hparams.model_weight if hparams.tokenizer_weight is None else hparams.tokenizer_weight
 
+    # Parse the parameters and print it
     exp.argparse(hparams)
     exp.save()
     logger.info(hparams)
@@ -75,16 +82,15 @@ def main(hparams):
 
     # TODO: Change this to your own model
     model = HuggingFaceClassifier(hparams)
-
     print(model)
 
+    # Initialize trainer instance
     early_stop = EarlyStopping(
         monitor=hparams.early_stop_metric,
         patience=hparams.early_stop_patience,
         verbose=True,
         mode=hparams.early_stop_mode
     )
-
     checkpoint = ModelCheckpoint(
         filepath=hparams.model_save_path,
         save_best_only=True,
@@ -92,7 +98,6 @@ def main(hparams):
         monitor=hparams.model_save_monitor_value,
         mode=hparams.model_save_monitor_mode
     )
-
     trainer = Trainer(
         experiment=exp,
         checkpoint_callback=checkpoint,
@@ -124,6 +129,7 @@ def main(hparams):
         nb_sanity_val_steps=5,
     )
 
+    # Finally fit the model with all the parameters specified
     trainer.fit(model)
 
 
