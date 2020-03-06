@@ -35,16 +35,15 @@ modelTask=${allModelTask[${SLURM_ARRAY_TASK_ID}]}
 echo ""
 echo "This is for job "
 echo "$modelTask"
-bash /auto/nlg-05/wangli/ai2_chenghao/bin/train.sh $modelTask
+bash /auto/nlg-05/wangli/ai2/bin/train.sh $modelTask
 echo ""
 echo "Training finished, starting testing"
 echo ""
-bash /auto/nlg-05/wangli/ai2_chenghao/bin/test.sh $modelTask train
-bash /auto/nlg-05/wangli/ai2_chenghao/bin/test.sh $modelTask dev
+bash /auto/nlg-05/wangli/ai2/bin/test.sh $modelTask dev
 echo ""
 echo "Testing finished, starting evaluating"
 echo ""
-bash /auto/nlg-05/wangli/ai2_chenghao/bin/eval.sh $modelTask
+bash /auto/nlg-05/wangli/ai2/bin/eval.sh $modelTask
 echo ""
 
 ### Finishing up the job and copy the output off of staging

@@ -11,4 +11,4 @@ train-local.sh
 embeds/*
 
 # Local folder to store the HPC results and file in progress
-__local/
+__local__/
