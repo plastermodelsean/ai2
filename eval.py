@@ -28,7 +28,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 def main(hparams):
 
     # TODO: Change this model loader to your own.
-
+    # Load the latest hugging face model
     model = HuggingFaceClassifier.load_from_metrics(
         hparams=hparams,
         weights_path=hparams.weights_path,
@@ -40,9 +40,9 @@ def main(hparams):
     model = model.to(device)
     model.eval()
     results = []
-    for batch in DataLoader(
-            model.val_dataloader.dataset, shuffle=False, batch_size=4, collate_fn=model.collate_fn):
 
+    # Load in the data and move it to gpu
+    for batch in DataLoader(model.val_dataloader.dataset, shuffle=False, batch_size=4, collate_fn=model.collate_fn):
         batch["input_ids"] = batch["input_ids"].to(device)
         batch["attention_mask"] = batch["attention_mask"].to(device)
         batch["token_type_ids"] = batch["token_type_ids"].to(device)
@@ -50,20 +50,22 @@ def main(hparams):
         with torch.no_grad():
             results.append(model.validation_step(batch, -1))
 
+    # Use the model to predict the results
     logits = torch.cat([o['batch_logits'] for o in results], dim=0).reshape(-1, results[0]['batch_logits'].shape[1])
     pred = torch.argmax(logits, dim=-1).reshape(-1)
 
-
-    with open(f"{hparams.task_name}-{hparams.model_weight}-predictions.lst", "w") as output_file:
+    # Write the results out to a file for later comparison
+    with open(f"output/{hparams.task_name}-{hparams.model_weight}-predictions.lst", "w+") as output_file:
         output_file.write("\n".join(map(str, (pred + model.task_config[hparams.task_name]['label_offset']).cpu().numpy().tolist())))
 
+    # Calculate the accuracy of the result
     stats = []
     for _ in range(100):
         results_ = [results[i] for i in np.random.random_integers(0, len(results)-1, size=len(results))]
-
         res = model.validation_end(results_)
         stats.append(res['val_acc'])
 
+    # Calculate the confidence interval and log it to the console
     alpha = 0.95
     p = ((1.0-alpha)/2.0) * 100
     lower = max(0.0, np.percentile(stats, p))

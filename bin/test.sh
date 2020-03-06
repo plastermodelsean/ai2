@@ -1,5 +1,5 @@
 #!/bin/sh
-PYTHON=/auto/nlg-05/wangli/miniconda3/envs/ai2_chenghao/bin/python
+PYTHON=/auto/nlg-05/wangli/miniconda3/envs/ai2/bin/python
 TEST=/auto/rcf-40/wangli/project/ai2/test.py
 OUTPUT=/auto/rcf-40/wangli/project/ai2/output
 

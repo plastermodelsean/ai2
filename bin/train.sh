@@ -1,5 +1,5 @@
 #!/bin/sh
-PYTHON=/auto/nlg-05/wangli/miniconda3/envs/ai2_chenghao/bin/python
+PYTHON=/auto/nlg-05/wangli/miniconda3/envs/ai2/bin/python
 TRAIN=/auto/rcf-40/wangli/project/ai2/train.py
 
 $PYTHON -W ignore $TRAIN --model_type "$1" --model_weight "$2" \
