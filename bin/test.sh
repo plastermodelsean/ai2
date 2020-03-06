@@ -7,11 +7,14 @@ FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_6.ckpt
 if [ ! -f "$FILE" ]; then
   FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_5.ckpt
   if [ ! -f "$FILE" ]; then
-    FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_3.ckpt
+    FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_4.ckpt
     if [ ! -f "$FILE" ]; then
-      FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_2.ckpt
+      FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_3.ckpt
       if [ ! -f "$FILE" ]; then
-        FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_1.ckpt
+        FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_2.ckpt
+        if [ ! -f "$FILE" ]; then
+          FILE=$OUTPUT/$1-$2-checkpoints/$3/0/_ckpt_epoch_1.ckpt
+        fi
       fi
     fi
   fi
