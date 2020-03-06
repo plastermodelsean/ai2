@@ -36,8 +36,14 @@ echo ""
 echo "This is for job "
 echo "$modelTask"
 bash /auto/nlg-05/wangli/ai2_chenghao/bin/train.sh $modelTask
+echo ""
+echo "Training finished, starting testing"
+echo ""
 bash /auto/nlg-05/wangli/ai2_chenghao/bin/test.sh $modelTask train
 bash /auto/nlg-05/wangli/ai2_chenghao/bin/test.sh $modelTask dev
+echo ""
+echo "Testing finished, starting evaluating"
+echo ""
 bash /auto/nlg-05/wangli/ai2_chenghao/bin/eval.sh $modelTask
 echo ""
 
