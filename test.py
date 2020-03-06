@@ -23,7 +23,6 @@ from huggingface import HuggingFaceClassifier
 def main(hparams):
 
     # TODO: Change this model loader to your own.
-
     model = HuggingFaceClassifier.load_from_metrics(
         hparams=hparams,
         weights_path=hparams.weights_path,
@@ -33,7 +32,6 @@ def main(hparams):
     )
 
     trainer = Trainer()
-
     trainer.test(model)
 
 
