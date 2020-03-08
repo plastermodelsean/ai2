@@ -11,271 +11,283 @@
 ## roberta large:       355 M         <-- large
 ## distilbert:          60 M          <-- small
 
-alphanli:
+alphanli: &id001
   albert:
     albert-xxlarge-v2:
-      lr: 5e-6
       batch_size: 16
+      lr: 5e-6
   bert:
     bert-large-cased:
-      lr: 5e-6
       batch_size: 16
+      lr: 5e-6
+  default:
+    accumulate_grad_batches: 1
+    adam_epsilon: 1e-8
+    batch_size: 48
+    do_lower_case: false
+    dropout: 0.6
+    initializer_range: 0.02
+    lr: 2e-5
+    max_nb_epochs: 3
+    max_seq_len: 128
+    seed: 42
+    warmup_steps: 0
+    weight_decay: 0.0
   distilbert:
     distilbert-base-uncased:
+      batch_size: 128
       do_lower_case: true
       lr: 5e-5
-      batch_size: 128
       max_nb_epochs: 6
-  xlnet:
-    xlnet-large-cased:
-      lr: 5e-6
-      batch_size: 16
   roberta:
     roberta-large:
-      lr: 5e-6
       batch_size: 16
-  default:
-    seed: 42
-    lr: 2e-5
-    dropout: 0.6
-    batch_size: 48
-    max_seq_len: 128
-    max_nb_epochs: 3
-    initializer_range: 0.02
-    weight_decay: 0.0
-    warmup_steps: 0
-    adam_epsilon: 1e-8
-    accumulate_grad_batches: 1
-    do_lower_case: false
+      lr: 5e-6
+  xlnet:
+    xlnet-large-cased:
+      batch_size: 16
+      lr: 5e-6
+alphanli_0: *id001
+alphanli_10: *id001
+alphanli_100: *id001
+alphanli_15: *id001
+alphanli_2: *id001
+alphanli_20: *id001
+alphanli_25: *id001
+alphanli_30: *id001
+alphanli_5: *id001
+alphanli_50: *id001
+alphanli_7: *id001
+alphanli_70: *id001
 hellaswag:
   albert:
     albert-xxlarge-v2:
-      lr: 5e-6
       batch_size: 8
+      lr: 5e-6
   bert:
     bert-large-cased:
-      lr: 5e-6
       batch_size: 8
-  gpt2:
-    gpt2:
       lr: 5e-6
-      batch_size: 8
-  xlnet:
-    xlnet-large-cased:
-      lr: 5e-6
-      batch_size: 8
-  roberta:
-    roberta-large:
-      lr: 5e-6
-      batch_size: 8
+  default:
+    accumulate_grad_batches: 1
+    adam_epsilon: 1e-8
+    batch_size: 16
+    do_lower_case: false
+    dropout: 0.5
+    initializer_range: 0.02
+    lr: 2e-5
+    max_nb_epochs: 3
+    max_seq_len: 160
+    seed: 42
+    warmup_steps: 0
+    weight_decay: 0.0
   distilbert:
     distilbert-base-uncased:
+      batch_size: 64
       do_lower_case: true
       lr: 5e-5
-      batch_size: 64
       max_nb_epochs: 6
-  default:
-    seed: 42
-    lr: 2e-5
-    dropout: 0.5
-    batch_size: 16
-    max_seq_len: 160
-    max_nb_epochs: 3
-    initializer_range: 0.02
-    weight_decay: 0.0
-    warmup_steps: 0
-    adam_epsilon: 1e-8
-    accumulate_grad_batches: 1
-    do_lower_case: false
+  gpt2:
+    gpt2:
+      batch_size: 8
+      lr: 5e-6
+  roberta:
+    roberta-large:
+      batch_size: 8
+      lr: 5e-6
+  xlnet:
+    xlnet-large-cased:
+      batch_size: 8
+      lr: 5e-6
 physicaliqa:
   albert:
     albert-xxlarge-v2:
-      lr: 5e-6
       batch_size: 8
+      lr: 5e-6
+  bert:
+    bert-large-cased:
+      batch_size: 8
+      lr: 5e-6
+  default:
+    accumulate_grad_batches: 1
+    adam_epsilon: 1e-8
+    batch_size: 32
+    do_lower_case: false
+    dropout: 0.5
+    initializer_range: 0.02
+    lr: 2e-5
+    max_nb_epochs: 3
+    max_seq_len: 128
+    seed: 42
+    warmup_steps: 0
+    weight_decay: 0.0
+  distilbert:
+    distilbert-base-uncased:
+      batch_size: 128
+      do_lower_case: true
+      lr: 5e-5
+      max_nb_epochs: 6
   libert:
     /auto/nlg-05/chengham/libert/output:
-      lr: 2e-5
       batch_size: 32
-    bert-base-uncased:
       lr: 2e-5
-      batch_size: 8
+    bert-base-uncased:
       accumulate_grad_batches: 4
-  bert:
-    bert-large-cased:
-      lr: 5e-6
       batch_size: 8
-  xlnet:
-    xlnet-large-cased:
-      lr: 5e-6
-      batch_size: 8
+      lr: 2e-5
   roberta:
     roberta-large:
-      lr: 5e-6
       batch_size: 8
-  distilbert:
-    distilbert-base-uncased:
-      do_lower_case: true
-      lr: 5e-5
-      batch_size: 128
-      max_nb_epochs: 6
-  default:
-    seed: 42
-    lr: 2e-5
-    dropout: 0.5
-    batch_size: 32
-    max_seq_len: 128
-    max_nb_epochs: 3
-    initializer_range: 0.02
-    weight_decay: 0.0
-    warmup_steps: 0
-    adam_epsilon: 1e-8
-    accumulate_grad_batches: 1
-    do_lower_case: false
-socialiqa:
-  albert:
-    albert-xxlarge-v2:
       lr: 5e-6
-      batch_size: 8
-  bert:
-    bert-large-cased:
-      lr: 5e-6
-      batch_size: 8
   xlnet:
     xlnet-large-cased:
-      lr: 5e-6
       batch_size: 8
-  roberta:
-    roberta-large:
       lr: 5e-6
-      batch_size: 8
-  distilbert:
-    distilbert-base-uncased:
-      do_lower_case: true
-      lr: 5e-5
-      batch_size: 128
-      max_nb_epochs: 6
-  default:
-    seed: 42
-    lr: 2e-5
-    dropout: 0.5
-    batch_size: 32
-    max_seq_len: 128
-    max_nb_epochs: 3
-    initializer_range: 0.02
-    weight_decay: 0.0
-    warmup_steps: 0
-    adam_epsilon: 1e-8
-    accumulate_grad_batches: 1
-    do_lower_case: false
-vcrqa:
-  bert:
-    bert-large-cased:
-      lr: 5e-6
-      batch_size: 8
-  gpt2:
-    gpt2:
-      lr: 5e-6
-      batch_size: 8
-  xlnet:
-    xlnet-large-cased:
-      lr: 5e-6
-      batch_size: 8
-  roberta:
-    roberta-large:
-      lr: 5e-6
-      batch_size: 8
-  distilbert:
-    distilbert-base-uncased:
-      do_lower_case: true
-      lr: 5e-5
-      batch_size: 128
-      max_nb_epochs: 6
-  default:
-    seed: 42
-    lr: 2e-5
-    dropout: 0.5
-    batch_size: 32
-    max_seq_len: 128
-    max_nb_epochs: 3
-    initializer_range: 0.02
-    weight_decay: 0.0
-    warmup_steps: 0
-    adam_epsilon: 1e-8
-    accumulate_grad_batches: 1
-    do_lower_case: false
-vcrqr:
-  bert:
-    bert-large-cased:
-      lr: 5e-6
-      batch_size: 8
-  gpt2:
-    gpt2:
-      lr: 5e-6
-      batch_size: 8
-  xlnet:
-    xlnet-large-cased:
-      lr: 5e-6
-      batch_size: 8
-  roberta:
-    roberta-large:
-      lr: 5e-6
-      batch_size: 8
-  distilbert:
-    distilbert-base-uncased:
-      do_lower_case: true
-      lr: 5e-5
-      batch_size: 128
-      max_nb_epochs: 6
-  default:
-    seed: 42
-    lr: 2e-5
-    dropout: 0.5
-    batch_size: 32
-    max_seq_len: 128
-    max_nb_epochs: 3
-    initializer_range: 0.02
-    weight_decay: 0.0
-    warmup_steps: 0
-    adam_epsilon: 1e-8
-    accumulate_grad_batches: 1
-    do_lower_case: false
 qqp:
   albert:
     albert-xxlarge-v2:
-      lr: 5e-6
       batch_size: 8
+      lr: 5e-6
   bert:
     bert-large-cased:
-      lr: 5e-6
       batch_size: 8
-  gpt2:
-    gpt2:
       lr: 5e-6
-      batch_size: 8
-  xlnet:
-    xlnet-large-cased:
-      lr: 5e-6
-      batch_size: 8
-  roberta:
-    roberta-large:
-      lr: 5e-6
-      batch_size: 8
+  default:
+    accumulate_grad_batches: 1
+    adam_epsilon: 1e-8
+    batch_size: 16
+    do_lower_case: false
+    dropout: 0.5
+    initializer_range: 0.02
+    lr: 2e-5
+    max_nb_epochs: 3
+    max_seq_len: 160
+    seed: 42
+    warmup_steps: 0
+    weight_decay: 0.0
   distilbert:
     distilbert-base-uncased:
+      batch_size: 64
       do_lower_case: true
       lr: 5e-5
-      batch_size: 64
       max_nb_epochs: 6
+  gpt2:
+    gpt2:
+      batch_size: 8
+      lr: 5e-6
+  roberta:
+    roberta-large:
+      batch_size: 8
+      lr: 5e-6
+  xlnet:
+    xlnet-large-cased:
+      batch_size: 8
+      lr: 5e-6
+socialiqa:
+  albert:
+    albert-xxlarge-v2:
+      batch_size: 8
+      lr: 5e-6
+  bert:
+    bert-large-cased:
+      batch_size: 8
+      lr: 5e-6
   default:
-    seed: 42
-    lr: 2e-5
-    dropout: 0.5
-    batch_size: 16
-    max_seq_len: 160
-    max_nb_epochs: 3
-    initializer_range: 0.02
-    weight_decay: 0.0
-    warmup_steps: 0
-    adam_epsilon: 1e-8
     accumulate_grad_batches: 1
+    adam_epsilon: 1e-8
+    batch_size: 32
     do_lower_case: false
+    dropout: 0.5
+    initializer_range: 0.02
+    lr: 2e-5
+    max_nb_epochs: 3
+    max_seq_len: 128
+    seed: 42
+    warmup_steps: 0
+    weight_decay: 0.0
+  distilbert:
+    distilbert-base-uncased:
+      batch_size: 128
+      do_lower_case: true
+      lr: 5e-5
+      max_nb_epochs: 6
+  roberta:
+    roberta-large:
+      batch_size: 8
+      lr: 5e-6
+  xlnet:
+    xlnet-large-cased:
+      batch_size: 8
+      lr: 5e-6
+vcrqa:
+  bert:
+    bert-large-cased:
+      batch_size: 8
+      lr: 5e-6
+  default:
+    accumulate_grad_batches: 1
+    adam_epsilon: 1e-8
+    batch_size: 32
+    do_lower_case: false
+    dropout: 0.5
+    initializer_range: 0.02
+    lr: 2e-5
+    max_nb_epochs: 3
+    max_seq_len: 128
+    seed: 42
+    warmup_steps: 0
+    weight_decay: 0.0
+  distilbert:
+    distilbert-base-uncased:
+      batch_size: 128
+      do_lower_case: true
+      lr: 5e-5
+      max_nb_epochs: 6
+  gpt2:
+    gpt2:
+      batch_size: 8
+      lr: 5e-6
+  roberta:
+    roberta-large:
+      batch_size: 8
+      lr: 5e-6
+  xlnet:
+    xlnet-large-cased:
+      batch_size: 8
+      lr: 5e-6
+vcrqr:
+  bert:
+    bert-large-cased:
+      batch_size: 8
+      lr: 5e-6
+  default:
+    accumulate_grad_batches: 1
+    adam_epsilon: 1e-8
+    batch_size: 32
+    do_lower_case: false
+    dropout: 0.5
+    initializer_range: 0.02
+    lr: 2e-5
+    max_nb_epochs: 3
+    max_seq_len: 128
+    seed: 42
+    warmup_steps: 0
+    weight_decay: 0.0
+  distilbert:
+    distilbert-base-uncased:
+      batch_size: 128
+      do_lower_case: true
+      lr: 5e-5
+      max_nb_epochs: 6
+  gpt2:
+    gpt2:
+      batch_size: 8
+      lr: 5e-6
+  roberta:
+    roberta-large:
+      batch_size: 8
+      lr: 5e-6
+  xlnet:
+    xlnet-large-cased:
+      batch_size: 8
+      lr: 5e-6

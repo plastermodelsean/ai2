@@ -3,7 +3,8 @@ import copy
 import yaml
 import math
 
-config_file_addr = 'config/tasks.yaml'
+task_config_file_addr = 'config/tasks.yaml'
+running_config_file_addr = 'config/hyparams.yaml'
 
 parser = argparse.ArgumentParser(description='Incremental training data processor')
 parser.add_argument('percentage', type=int,
@@ -31,20 +32,32 @@ with open(f'{output_directory}/train_w_label.shuf', 'r') as data_file:
                 train_file.write(new_line_of_data.split('\t')[0] + '\n')
                 label_file.write(new_line_of_data.split('\t')[1] + '\n')
 
+# Create the corresponding new task in both running config file and task config file
+new_task_name = f'{task_name}_{str(percentage)}'
 
-# Load the config parameters in the yaml file
-with open(config_file_addr, "r") as config_file:
-    config = yaml.safe_load(config_file)
+# Load the task config parameters in the yaml file
+with open(task_config_file_addr, "r") as config_file:
+    task_config = yaml.safe_load(config_file)
 
 # Creat a new task with the task name and modify the training data and label to reflect where we have stored them
-new_task_name = f'{task_name}_{str(percentage)}'
-config[new_task_name] = copy.deepcopy(config[task_name])
-config[new_task_name]['urls'] = ['']
-config[new_task_name]['file_mapping']['train']['train_x'] = \
+task_config[new_task_name] = copy.deepcopy(task_config[task_name])
+task_config[new_task_name]['urls'] = ['']
+task_config[new_task_name]['file_mapping']['train']['train_x'] = \
     '/'.join(f'{output_directory}/train.jsonl'.split('/')[3:])
-config[new_task_name]['file_mapping']['train']['train_y'] = \
+task_config[new_task_name]['file_mapping']['train']['train_y'] = \
     '/'.join(f'{output_directory}/train-labels.lst'.split('/')[3:])
 
 # Dump the yaml file back to where it came from
-with open(config_file_addr, "w") as config_file:
-    yaml.dump(config, config_file)
+with open(task_config_file_addr, "w") as config_file:
+    yaml.dump(task_config, config_file)
+
+# Load the running config parameters in the yaml file
+with open(running_config_file_addr, "r") as config_file:
+    running_config = yaml.safe_load(config_file)
+
+# Creat a new task with the task name and modify the training data and label to reflect where we have stored them
+running_config[new_task_name] = running_config[task_name]
+
+# Dump the yaml file back to where it came from
+with open(running_config_file_addr, "w") as config_file:
+    yaml.dump(running_config, config_file)
