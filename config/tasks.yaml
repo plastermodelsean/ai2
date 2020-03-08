@@ -15,11 +15,11 @@ alphanli:
 alphanli_0:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/0/train.jsonl
-      train_y: increment_training/0/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/0/train.jsonl
+      train_y: alphanli-train-dev/increment_training/0/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -29,11 +29,11 @@ alphanli_0:
 alphanli_10:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/10/train.jsonl
-      train_y: increment_training/10/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/10/train.jsonl
+      train_y: alphanli-train-dev/increment_training/10/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -43,11 +43,11 @@ alphanli_10:
 alphanli_100:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/100/train.jsonl
-      train_y: increment_training/100/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/100/train.jsonl
+      train_y: alphanli-train-dev/increment_training/100/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -57,11 +57,11 @@ alphanli_100:
 alphanli_15:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/15/train.jsonl
-      train_y: increment_training/15/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/15/train.jsonl
+      train_y: alphanli-train-dev/increment_training/15/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -71,11 +71,11 @@ alphanli_15:
 alphanli_2:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/2/train.jsonl
-      train_y: increment_training/2/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/2/train.jsonl
+      train_y: alphanli-train-dev/increment_training/2/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -85,11 +85,11 @@ alphanli_2:
 alphanli_20:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/20/train.jsonl
-      train_y: increment_training/20/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/20/train.jsonl
+      train_y: alphanli-train-dev/increment_training/20/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -99,11 +99,11 @@ alphanli_20:
 alphanli_25:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/25/train.jsonl
-      train_y: increment_training/25/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/25/train.jsonl
+      train_y: alphanli-train-dev/increment_training/25/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -113,11 +113,11 @@ alphanli_25:
 alphanli_30:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/30/train.jsonl
-      train_y: increment_training/30/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/30/train.jsonl
+      train_y: alphanli-train-dev/increment_training/30/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -127,11 +127,11 @@ alphanli_30:
 alphanli_5:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/5/train.jsonl
-      train_y: increment_training/5/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/5/train.jsonl
+      train_y: alphanli-train-dev/increment_training/5/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -141,11 +141,11 @@ alphanli_5:
 alphanli_50:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/50/train.jsonl
-      train_y: increment_training/50/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/50/train.jsonl
+      train_y: alphanli-train-dev/increment_training/50/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -155,11 +155,11 @@ alphanli_50:
 alphanli_7:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/7/train.jsonl
-      train_y: increment_training/7/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/7/train.jsonl
+      train_y: alphanli-train-dev/increment_training/7/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
@@ -169,11 +169,11 @@ alphanli_7:
 alphanli_70:
   file_mapping:
     dev:
-      dev_x: dev.jsonl
-      dev_y: dev-labels.lst
+      dev_x: alphanli-train-dev/dev.jsonl
+      dev_y: alphanli-train-dev/dev-labels.lst
     train:
-      train_x: increment_training/70/train.jsonl
-      train_y: increment_training/70/train-labels.lst
+      train_x: alphanli-train-dev/increment_training/70/train.jsonl
+      train_y: alphanli-train-dev/increment_training/70/train-labels.lst
   label_offset: 1
   num_choices: 2
   task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'

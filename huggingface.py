@@ -36,17 +36,9 @@ from textbook.utils import set_seed, get_default_hyperparameter
 
 import scipy.stats
 
-
-def mean_confidence_interval(data, confidence=0.95):
-    a = 1.0 * np.array(data)
-    n = len(a)
-    m, se = np.mean(a), scipy.stats.sem(a)
-    h = se * scipy.stats.t.ppf((1 + confidence) / 2., n-1)
-    return m, m-h, m+h
-
 # pylint: disable=no-member
 
-
+# Dictionaries for all transformers and it's tokenizer
 TOKENIZERS = {
     'bert': BertTokenizer,
     'distilbert': DistilBertTokenizer,
@@ -58,7 +50,6 @@ TOKENIZERS = {
     'libert': BertTokenizer,
     'albert': AlbertTokenizer
 }
-
 MODELS = {
     'bert': BertModel,
     'distilbert': DistilBertModel,
@@ -72,6 +63,16 @@ MODELS = {
 }
 
 
+# Stats calculation for confidence interval
+def mean_confidence_interval(data, confidence=0.95):
+    a = 1.0 * np.array(data)
+    n = len(a)
+    m, se = np.mean(a), scipy.stats.sem(a)
+    h = se * scipy.stats.t.ppf((1 + confidence) / 2., n-1)
+    return m, m-h, m+h
+
+
+# To load a hugging face model
 class HuggingFaceModelLoader(ModelLoader):
 
     def __init__(self, model: Union[Module, PreTrainedModel]):
@@ -179,9 +180,9 @@ class HuggingFaceClassifier(LightningModule):
         super(HuggingFaceClassifier, self).__init__()
         self.hparams = hparams
 
+        # Load parameters from config files
         with open(self.hparams.task_config_file, 'r') as input_file:
             self.task_config = yaml.safe_load(input_file)
-
         with open(self.hparams.running_config_file, 'r') as input_file:
             self.running_config = yaml.safe_load(input_file)
 
@@ -189,6 +190,7 @@ class HuggingFaceClassifier(LightningModule):
             os.mkdir(self.hparams.output_dir)
 
         # TODO: Change it to your own model loader
+
         self.encoder = HuggingFaceModelLoader.load(self.hparams.model_type, self.hparams.model_weight)
         self.encoder.train()
         self.dropout = nn.Dropout(self.hparams.dropout)
@@ -553,7 +555,6 @@ class HuggingFaceClassifier(LightningModule):
         task_group = parser.add_argument_group(title='Task options')
 
         # Add arguments to those groups
-
         model_group.add_argument('--model_type', type=str, required=True)
         model_group.add_argument('--model_weight', type=str, required=True)
         model_group.add_argument('--ci_alpha', type=float, default=0.95)
@@ -562,7 +563,7 @@ class HuggingFaceClassifier(LightningModule):
         tokenizer_group.add_argument('--tokenizer_weight', type=str, default=None)
 
         task_group.add_argument('--task_name',
-                                choices=['qqp', 'alphanli', 'snli', 'hellaswag', 'physicaliqa', 'socialiqa', 'vcrqa', 'vcrqr'],
+                                # choices=['qqp', 'alphanli', 'snli', 'hellaswag', 'physicaliqa', 'socialiqa', 'vcrqa', 'vcrqr'],
                                 required=True)
         task_group.add_argument('--task_config_file', type=str, required=True)
         task_group.add_argument('--task_cache_dir', type=str, required=True)
