@@ -1,129 +1,297 @@
 alphanli:
-  urls:
-    - "https://storage.googleapis.com/ai2-mosaic/public/alphanli/alphanli-train-dev.zip"
-  task_formula: "[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]"
-  type_formula: "0 0 0 1 1 0 0"
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: train.jsonl
+      train_y: train-labels.lst
   label_offset: 1
   num_choices: 2
-  file_mapping:
-    train:
-      train_x: "train.jsonl"
-      train_y: "train-labels.lst"
-    dev:
-      dev_x: "dev.jsonl"
-      dev_y: "dev-labels.lst"
-snli:
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
   urls:
-    - "https://nlp.stanford.edu/projects/snli/snli_1.0.zip"
-  task_formula: "[CLS] sentence1 [SEP] sentence2 [SEP]"
-  type_formula: "0 0 0 1 1"
-  label_formula: "gold_label"
-  label_offset: 0
-  num_choices: 1
-  label_transform:
-    neutral: 0
-    entailment: 1
-    contradiction: 2
-    "-": 3
-  output_dimension: 4
+  - https://storage.googleapis.com/ai2-mosaic/public/alphanli/alphanli-train-dev.zip
+alphanli_0:
   file_mapping:
-    train:
-      train_x: "snli_1.0/snli_1.0_train.jsonl"
-      train_y: "snli_1.0/snli_1.0_train.jsonl"
     dev:
-      dev_x: "snli_1.0/snli_1.0_dev.jsonl"
-      dev_y: "snli_1.0/snli_1.0_dev.jsonl"
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/0/train.jsonl
+      train_y: increment_training/0/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_10:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/10/train.jsonl
+      train_y: increment_training/10/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_100:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/100/train.jsonl
+      train_y: increment_training/100/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_15:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/15/train.jsonl
+      train_y: increment_training/15/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_2:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/2/train.jsonl
+      train_y: increment_training/2/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_20:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/20/train.jsonl
+      train_y: increment_training/20/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_25:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/25/train.jsonl
+      train_y: increment_training/25/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_30:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/30/train.jsonl
+      train_y: increment_training/30/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_5:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/5/train.jsonl
+      train_y: increment_training/5/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_50:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/50/train.jsonl
+      train_y: increment_training/50/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_7:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/7/train.jsonl
+      train_y: increment_training/7/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
+alphanli_70:
+  file_mapping:
+    dev:
+      dev_x: dev.jsonl
+      dev_y: dev-labels.lst
+    train:
+      train_x: increment_training/70/train.jsonl
+      train_y: increment_training/70/train-labels.lst
+  label_offset: 1
+  num_choices: 2
+  task_formula: '[CLS] obs1 [SEP] hyp1|hyp2 [SEP] obs2 [SEP]'
+  type_formula: 0 0 0 1 1 0 0
+  urls:
+  - ''
 hellaswag:
-  urls:
-    - "https://storage.googleapis.com/ai2-mosaic/public/hellaswag/hellaswag-train-dev.zip"
-  task_formula: "[CLS] ctx [SEP] ending_options [SEP]"
-  type_formula: "0 0 0 1 1"
+  file_mapping:
+    dev:
+      dev_x: hellaswag-train-dev/valid.jsonl
+      dev_y: hellaswag-train-dev/valid-labels.lst
+    train:
+      train_x: hellaswag-train-dev/train.jsonl
+      train_y: hellaswag-train-dev/train-labels.lst
   label_offset: 0
   num_choices: 4
-  file_mapping:
-    train:
-      train_x: "hellaswag-train-dev/train.jsonl"
-      train_y: "hellaswag-train-dev/train-labels.lst"
-    dev:
-      dev_x: "hellaswag-train-dev/valid.jsonl"
-      dev_y: "hellaswag-train-dev/valid-labels.lst"
-physicaliqa:
+  task_formula: '[CLS] ctx [SEP] ending_options [SEP]'
+  type_formula: 0 0 0 1 1
   urls:
-    - "https://storage.googleapis.com/ai2-mosaic/public/physicaliqa/physicaliqa-train-dev.zip"
-  task_formula: "[CLS] goal [SEP] sol1|sol2 [SEP]"
-  type_formula: "0 0 0 1 1"
+  - https://storage.googleapis.com/ai2-mosaic/public/hellaswag/hellaswag-train-dev.zip
+physicaliqa:
+  file_mapping:
+    dev:
+      dev_x: physicaliqa-train-dev/dev.jsonl
+      dev_y: physicaliqa-train-dev/dev-labels.lst
+    train:
+      train_x: physicaliqa-train-dev/train.jsonl
+      train_y: physicaliqa-train-dev/train-labels.lst
   label_offset: 0
   num_choices: 2
-  file_mapping:
-    train:
-      train_x: "physicaliqa-train-dev/train.jsonl"
-      train_y: "physicaliqa-train-dev/train-labels.lst"
-    dev:
-      dev_x: "physicaliqa-train-dev/dev.jsonl"
-      dev_y: "physicaliqa-train-dev/dev-labels.lst"
-socialiqa:
+  task_formula: '[CLS] goal [SEP] sol1|sol2 [SEP]'
+  type_formula: 0 0 0 1 1
   urls:
-    - "https://storage.googleapis.com/ai2-mosaic/public/socialiqa/socialiqa-train-dev.zip"
-  task_formula: "[CLS] context [SEP] question [SEP] answerA|answerB|answerC [SEP]"
-  type_formula: "0 0 0 0 0 1 1"
+  - https://storage.googleapis.com/ai2-mosaic/public/physicaliqa/physicaliqa-train-dev.zip
+qqp:
+  file_mapping:
+    dev:
+      dev_x: qqp/eval.jsonl
+      dev_y: qqp/eval.jsonl
+    train:
+      train_x: qqp/train.jsonl
+      train_y: qqp/train.jsonl
+  label_formula: is_duplicate
+  label_offset: 0
+  label_transform:
+    '0': 0
+    '1': 1
+  num_choices: 1
+  output_dimension: 2
+  task_formula: '[CLS] question1 [SEP] question2 [SEP]'
+  type_formula: 0 0 0 1 1
+  urls: []
+snli:
+  file_mapping:
+    dev:
+      dev_x: snli_1.0/snli_1.0_dev.jsonl
+      dev_y: snli_1.0/snli_1.0_dev.jsonl
+    train:
+      train_x: snli_1.0/snli_1.0_train.jsonl
+      train_y: snli_1.0/snli_1.0_train.jsonl
+  label_formula: gold_label
+  label_offset: 0
+  label_transform:
+    '-': 3
+    contradiction: 2
+    entailment: 1
+    neutral: 0
+  num_choices: 1
+  output_dimension: 4
+  task_formula: '[CLS] sentence1 [SEP] sentence2 [SEP]'
+  type_formula: 0 0 0 1 1
+  urls:
+  - https://nlp.stanford.edu/projects/snli/snli_1.0.zip
+socialiqa:
+  file_mapping:
+    dev:
+      dev_x: socialiqa-train-dev/dev.jsonl
+      dev_y: socialiqa-train-dev/dev-labels.lst
+    train:
+      train_x: socialiqa-train-dev/train.jsonl
+      train_y: socialiqa-train-dev/train-labels.lst
   label_offset: 1
   num_choices: 3
-  file_mapping:
-    train:
-      train_x: "socialiqa-train-dev/train.jsonl"
-      train_y: "socialiqa-train-dev/train-labels.lst"
-    dev:
-      dev_x: "socialiqa-train-dev/dev.jsonl"
-      dev_y: "socialiqa-train-dev/dev-labels.lst"
+  task_formula: '[CLS] context [SEP] question [SEP] answerA|answerB|answerC [SEP]'
+  type_formula: 0 0 0 0 0 1 1
+  urls:
+  - https://storage.googleapis.com/ai2-mosaic/public/socialiqa/socialiqa-train-dev.zip
 vcrqa:
-  urls:
-    - "https://storage.googleapis.com/ai2-mosaic/public/vcr/train.tar.gz"
-    - "https://storage.googleapis.com/ai2-mosaic/public/vcr/val.tar.gz"
-  pretokenized: true
-  task_formula: "[CLS] question [SEP] answer_choices [SEP]"
-  type_formula: "0 0 0 1 1"
-  label_formula: "answer_label"
+  file_mapping:
+    dev:
+      dev_x: val/qa.jsonl
+      dev_y: val/labels.jsonl
+    train:
+      train_x: train/qa.jsonl
+      train_y: train/labels.jsonl
+  label_formula: answer_label
   label_offset: 0
   num_choices: 4
-  file_mapping:
-    train:
-      train_x: "train/qa.jsonl"
-      train_y: "train/labels.jsonl"
-    dev:
-      dev_x: "val/qa.jsonl"
-      dev_y: "val/labels.jsonl"
+  pretokenized: true
+  task_formula: '[CLS] question [SEP] answer_choices [SEP]'
+  type_formula: 0 0 0 1 1
+  urls:
+  - https://storage.googleapis.com/ai2-mosaic/public/vcr/train.tar.gz
+  - https://storage.googleapis.com/ai2-mosaic/public/vcr/val.tar.gz
 vcrqr:
-  urls:
-    - "https://storage.googleapis.com/ai2-mosaic/public/vcr/train.tar.gz"
-    - "https://storage.googleapis.com/ai2-mosaic/public/vcr/val.tar.gz"
-  pretokenized: true
-  task_formula: "[CLS] question [SEP] rationale_choices [SEP]"
-  type_formula: "0 0 0 1 1"
-  label_formula: "rationale_label"
+  file_mapping:
+    dev:
+      dev_x: val/qar.jsonl
+      dev_y: val/labels.jsonl
+    train:
+      train_x: train/qar.jsonl
+      train_y: train/labels.jsonl
+  label_formula: rationale_label
   label_offset: 0
   num_choices: 4
-  file_mapping:
-    train:
-      train_x: "train/qar.jsonl"
-      train_y: "train/labels.jsonl"
-    dev:
-      dev_x: "val/qar.jsonl"
-      dev_y: "val/labels.jsonl"
-qqp:
-  urls: []
-  task_formula: "[CLS] question1 [SEP] question2 [SEP]" # special tokens and fields
-  type_formula: "0 0 0 1 1" # segment id for each part of task_formula
-  label_formula: "is_duplicate"
-  label_offset: 0
-  num_choices: 1 # single sentence classification
-  label_transform:
-    "0": 0
-    "1": 1
-  output_dimension: 2
-  file_mapping:
-    train:
-      train_x: "qqp/train.jsonl"
-      train_y: "qqp/train.jsonl"
-    dev:
-      dev_x: "qqp/eval.jsonl"
-      dev_y: "qqp/eval.jsonl"
+  pretokenized: true
+  task_formula: '[CLS] question [SEP] rationale_choices [SEP]'
+  type_formula: 0 0 0 1 1
+  urls:
+  - https://storage.googleapis.com/ai2-mosaic/public/vcr/train.tar.gz
+  - https://storage.googleapis.com/ai2-mosaic/public/vcr/val.tar.gz
